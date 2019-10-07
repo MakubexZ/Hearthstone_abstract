@@ -1,11 +1,11 @@
-from common.constants import CARDS_DEALINGS
-from games.kuhn import KuhnRootChanceGameState
+from common.constants import STARTING_HANDS
+from games.hs import RootChanceGameState
 from games.algorithms import ChanceSamplingCFR, VanillaCFR
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-root = KuhnRootChanceGameState(CARDS_DEALINGS)
+root = RootChanceGameState(STARTING_HANDS)
 
 
 print('Chance_sampling')

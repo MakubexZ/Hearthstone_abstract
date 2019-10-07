@@ -1,6 +1,7 @@
 from common.constants import A
 from common.utils import init_sigma, init_empty_node_maps
 
+
 class CounterfactualRegretMinimizationBase:
 
     def __init__(self, root, chance_sampling = False):
@@ -76,6 +77,8 @@ class CounterfactualRegretMinimizationBase:
             print('is chance node')
             '''
             if self.chance_sampling:
+                if len(list(state.children.values())) == 0:
+                    return state.evaluation()
                 return self._cfr_utility_recursive(state.sample_one(), reach_a, reach_b)
             else:
                 chance_outcomes = {state.play(action) for action in state.actions}
